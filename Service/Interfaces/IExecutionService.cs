@@ -1,7 +1,11 @@
-﻿namespace OnlineJudge.Service.Interfaces
+﻿using Domain.Models;
+
+namespace OnlineJudge.Service.Interfaces
 {
     public interface IExecutionService
     {
-        bool Run(string filePath);
+        Result Compile(string filePath);
+
+        Result Run(string codeFilePath);
     }
 }
