@@ -10,10 +10,6 @@ namespace OnlineJudge.Service.Interfaces
 
         ExecutionResult GetTesterResult(string codeFilePath);
 
-        string GetCompilationErrorMessage(string codeFilePath);
-
-        string GetRuntimeErrorMessage(string codeFilePath);
-
         string ReadFromFile(string filePath);
 
         void WriteToFile(string filePath, string contents);

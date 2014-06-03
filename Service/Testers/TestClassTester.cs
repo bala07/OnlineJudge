@@ -1,12 +1,10 @@
-﻿using System.IO;
-
-using Domain.Models;
+﻿using Domain.Models;
 
 namespace OnlineJudge.Service.Testers
 {
     class TestClassTester : BaseTester
     {
-        public override void Test(string codeFilePath, string resultFilePath)
+        public override void Test(string codeFilePath)
         {
             var compilationSuccessful = this.Compile(codeFilePath);
 
@@ -17,7 +15,7 @@ namespace OnlineJudge.Service.Testers
                 return;
             }
 
-            var executionSuccessful = this.Run(codeFilePath);
+            var executionSuccessful = this.Run(codeFilePath, new string[]{});
 
             if (executionSuccessful)
             {

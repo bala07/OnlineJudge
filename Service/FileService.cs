@@ -47,32 +47,6 @@ namespace OnlineJudge.Service
             return executionResult;
         }
 
-        public string GetCompilationErrorMessage(string codeFilePath)
-        {
-            var compilationErrorFilePath = pathService.GetCompilationErrorFilePath(codeFilePath);
-            string compilationError;
-
-            using (var fileReader = new StreamReader(compilationErrorFilePath))
-            {
-                compilationError = fileReader.ReadToEnd();
-            }
-
-            return compilationError;
-        }
-
-        public string GetRuntimeErrorMessage(string codeFilePath)
-        {
-            var runtimeErrorFilePath = pathService.GetRuntimeErrorFilePath(codeFilePath);
-            string runtimeError;
-
-            using (var fileReader = new StreamReader(runtimeErrorFilePath))
-            {
-                runtimeError = fileReader.ReadToEnd();
-            }
-
-            return runtimeError;
-        }
-
         public string ReadFromFile(string filePath)
         {
             string fileContents;

@@ -23,22 +23,6 @@ namespace OnlineJudge.Service
 
         }
 
-        public string GetCompilationErrorFilePath(string codeFilePath)
-        {
-            var codeFileName = Path.GetFileNameWithoutExtension(codeFilePath);
-            var codeFileDirectory = Path.GetDirectoryName(codeFilePath);
-
-            return codeFileDirectory + "\\" + codeFileName + "_compilationError.txt";
-        }
-
-        public string GetRuntimeErrorFilePath(string codeFilePath)
-        {
-            var codeFileName = Path.GetFileName(codeFilePath);
-            var codeFileDirectory = Path.GetDirectoryName(codeFilePath);
-
-            return codeFileDirectory + "\\" + codeFileName + "_runtimeError.txt";
-        }
-
         public string GetErrorFilePath(string codeFilePath)
         {
             var codeFileName = Path.GetFileName(codeFilePath);

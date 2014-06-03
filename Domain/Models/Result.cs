@@ -4,8 +4,6 @@
     {
         public ExecutionResult ExecutionResult;
 
-        public string CompilationErrorMessage;
-
-        public string RuntimeErrorMessage;
+        public string ErrorMessage;
     }
 }

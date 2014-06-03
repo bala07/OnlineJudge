@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5376e54c-1dda-432f-adda-649093f2f31c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7963be2a-6620-4fed-9d7a-c3f2cdb70fb9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,10 +22,11 @@
     <MetadataSource Address="http://localhost:9090/CodeExecutionService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="CodeExecutionService.xsd" MetadataType="Schema" ID="354dec8d-4651-4ecb-a93b-ada0109f198f" SourceId="1" SourceUrl="http://localhost:9090/CodeExecutionService.svc?xsd=xsd1" />
-    <MetadataFile FileName="CodeExecutionService.disco" MetadataType="Disco" ID="4545e405-7169-4c4f-a005-32d82d645cd3" SourceId="1" SourceUrl="http://localhost:9090/CodeExecutionService.svc?disco" />
-    <MetadataFile FileName="CodeExecutionService1.xsd" MetadataType="Schema" ID="f91c2a5d-5a58-403c-84fb-eec5c322e1b7" SourceId="1" SourceUrl="http://localhost:9090/CodeExecutionService.svc?xsd=xsd0" />
-    <MetadataFile FileName="CodeExecutionService.wsdl" MetadataType="Wsdl" ID="3a8b5fc6-ef5b-40b2-a43a-f2dc85526713" SourceId="1" SourceUrl="http://localhost:9090/CodeExecutionService.svc?wsdl" />
+    <MetadataFile FileName="CodeExecutionService.xsd" MetadataType="Schema" ID="669b8dc4-0601-4b1c-b156-427594cf679e" SourceId="1" SourceUrl="http://localhost:9090/CodeExecutionService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CodeExecutionService.disco" MetadataType="Disco" ID="d718cbbc-2ba6-447e-9172-4e4c09d63177" SourceId="1" SourceUrl="http://localhost:9090/CodeExecutionService.svc?disco" />
+    <MetadataFile FileName="CodeExecutionService1.xsd" MetadataType="Schema" ID="386dbb76-a617-4dbc-9eb6-80be51222c32" SourceId="1" SourceUrl="http://localhost:9090/CodeExecutionService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CodeExecutionService2.xsd" MetadataType="Schema" ID="074ec8b5-7c1b-4fdd-9264-6e9b50a81b4d" SourceId="1" SourceUrl="http://localhost:9090/CodeExecutionService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CodeExecutionService.wsdl" MetadataType="Wsdl" ID="1244d0ce-7660-422c-80f5-34d4f5630899" SourceId="1" SourceUrl="http://localhost:9090/CodeExecutionService.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

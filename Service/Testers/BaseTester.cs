@@ -15,54 +15,54 @@ namespace OnlineJudge.Service.Testers
 
         public BaseTester()
         {
-            CodeExecutionService = new CodeExecutionServiceClient();
-            PathService = new PathService();
-            FileService = new FileService();
+            this.CodeExecutionService = new CodeExecutionServiceClient();
+            this.PathService = new PathService();
+            this.FileService = new FileService();
         }
 
-        public virtual void Test(string codeFilePath, string resultFilePath)
+        public virtual void Test(string codeFilePath)
         {
         }
 
         protected bool Compile(string codeFilePath)
         {
-            return CodeExecutionService.Compile(codeFilePath);
+            return this.CodeExecutionService.Compile(codeFilePath);
         }
 
-        protected bool Run(string codeFilePath)
+        protected bool Run(string codeFilePath, string[] commandLineArguments)
         {
-            return CodeExecutionService.Run(codeFilePath);
+            return this.CodeExecutionService.Run(codeFilePath, commandLineArguments);
         }
 
         protected void HandleCompilationError(string codeFilePath)
         {
-            var errorFilePath = PathService.GetErrorFilePath(codeFilePath);
-            var compilationErrorFilePath = PathService.GetCompilationErrorFilePath(codeFilePath);
-            var resultFilePath = PathService.GetResultFilePath(codeFilePath);
+            var errorFilePath = this.PathService.GetErrorFilePath(codeFilePath);
+            var compilationErrorFilePath = this.PathService.GetErrorFilePath(codeFilePath);
+            var resultFilePath = this.PathService.GetResultFilePath(codeFilePath);
 
-            var compilationError = FileService.ReadFromFile(errorFilePath);
+            var compilationError = this.FileService.ReadFromFile(errorFilePath);
 
-            FileService.WriteToFile(compilationErrorFilePath, compilationError);
-            FileService.WriteToFile(resultFilePath, "CompilationError");
+            this.FileService.WriteToFile(compilationErrorFilePath, compilationError);
+            this.FileService.WriteToFile(resultFilePath, "CompilationError");
         }
 
         protected void HandleSuccessFulExecution(string codeFilePath, ExecutionResult result)
         {
-            var resultFilePath = PathService.GetResultFilePath(codeFilePath);
+            var resultFilePath = this.PathService.GetResultFilePath(codeFilePath);
 
-            FileService.WriteToFile(resultFilePath, result.ToString());
+            this.FileService.WriteToFile(resultFilePath, result.ToString());
         }
 
         protected void HandleRuntimeError(string codeFilePath)
         {
-            var errorFilePath = PathService.GetErrorFilePath(codeFilePath);
-            var runtimeErrorFilePath = PathService.GetRuntimeErrorFilePath(codeFilePath);
-            var resultFilePath = PathService.GetResultFilePath(codeFilePath);
+            var errorFilePath = this.PathService.GetErrorFilePath(codeFilePath);
+            var runtimeErrorFilePath = this.PathService.GetErrorFilePath(codeFilePath);
+            var resultFilePath = this.PathService.GetResultFilePath(codeFilePath);
 
-            var runtimeError = FileService.ReadFromFile(errorFilePath);
+            var runtimeError = this.FileService.ReadFromFile(errorFilePath);
 
-            FileService.WriteToFile(runtimeErrorFilePath, runtimeError);
-            FileService.WriteToFile(resultFilePath, "RuntimeError");
+            this.FileService.WriteToFile(runtimeErrorFilePath, runtimeError);
+            this.FileService.WriteToFile(resultFilePath, "RuntimeError");
         }
     }
 }

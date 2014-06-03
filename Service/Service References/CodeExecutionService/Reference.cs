@@ -22,10 +22,10 @@ namespace OnlineJudge.Service.CodeExecutionService {
         System.Threading.Tasks.Task<bool> CompileAsync(string codeFilePath);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICodeExecutionService/Run", ReplyAction="http://tempuri.org/ICodeExecutionService/RunResponse")]
-        bool Run(string codeFilePath);
+        bool Run(string codeFilePath, string[] commandLineParameters);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICodeExecutionService/Run", ReplyAction="http://tempuri.org/ICodeExecutionService/RunResponse")]
-        System.Threading.Tasks.Task<bool> RunAsync(string codeFilePath);
+        System.Threading.Tasks.Task<bool> RunAsync(string codeFilePath, string[] commandLineParameters);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -63,12 +63,12 @@ namespace OnlineJudge.Service.CodeExecutionService {
             return base.Channel.CompileAsync(codeFilePath);
         }
         
-        public bool Run(string codeFilePath) {
-            return base.Channel.Run(codeFilePath);
+        public bool Run(string codeFilePath, string[] commandLineParameters) {
+            return base.Channel.Run(codeFilePath, commandLineParameters);
         }
         
-        public System.Threading.Tasks.Task<bool> RunAsync(string codeFilePath) {
-            return base.Channel.RunAsync(codeFilePath);
+        public System.Threading.Tasks.Task<bool> RunAsync(string codeFilePath, string[] commandLineParameters) {
+            return base.Channel.RunAsync(codeFilePath, commandLineParameters);
         }
     }
 }

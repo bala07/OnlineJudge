@@ -2,6 +2,6 @@
 {
     public interface ITester
     {
-        void Test(string codeFilePath, string resultFilePath);
+        void Test(string codeFilePath);
     }
 }
