@@ -42,6 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IProblemService.cs" />
+    <Compile Include="ProblemService.cs" />
+    <Compile Include="Utilities.cs" />
     <Compile Include="Constants\FileConstants.cs" />
     <Compile Include="TesterService.cs" />
     <Compile Include="FileService.cs" />

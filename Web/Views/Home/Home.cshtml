@@ -1,10 +1,31 @@
-﻿@{
-    ViewBag.Title = "Home";
-}
+﻿
+<div class="hero-unit">
+	<h1>A place to solve algorithmic problems</h1>
+</div>
 
-<h2>Home</h2>
-@using (Html.BeginForm("Submit", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    <input type="file" name="file"/>
-    <input type="submit" value="OK"/>
-}
+<hr>
+
+<div class="row">
+	<div class="span4">
+		<ul class="nav nav-list">
+			<li class="nav-header">What we are?</li>
+			<li class="active"><a href="@Url.Action("Home", "Home")>Home</a></li>
+			<li><a href="@Url.Action("List", "Problems")">Problems</a></li>
+			<li><a href="#">About Us</a></li>
+			<li><a href="#">Contact Us</a></li>
+		</ul>
+	</div>
+	<div class="span8">
+		<h3> Online Judge </h3>
+		<p> Online Judge is my learning attempt to develop an online judge to help people to test their algorithmic skills  </p>
+	</div>
+</div>
+
+<hr>
+            
+@*<h2>Home</h2>*@
+@*@using (Html.BeginForm("Submit", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))*@
+@*{*@
+@*    <input type="file" name="file"/>*@
+@*    <input type="submit" value="OK"/>*@
+@*}*@

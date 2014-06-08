@@ -1,0 +1,21 @@
+﻿@model IList<Domain.Models.Problem>
+@{
+    ViewBag.Title = "List";
+}
+            
+<h3>Problems</h3>
+
+@{
+    Html.RenderPartial("_ProblemsList", Model);
+}
+
+			
+
+@*<h2>Home</h2>*@
+@*@using (Html.BeginForm("Submit", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))*@
+@*{*@
+@*    <input type="file" name="file"/>*@
+@*    <input type="submit" value="OK"/>*@
+@*}*@
+
+

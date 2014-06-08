@@ -1,4 +1,6 @@
-﻿using Domain.Models;
+﻿using System.IO;
+
+using Domain.Models;
 
 using OnlineJudge.Service.CodeExecutionService;
 using OnlineJudge.Service.Interfaces;
@@ -24,7 +26,11 @@ namespace OnlineJudge.Service
 
             tester.Test(codeFilePath);
 
-            var result = new Result { ExecutionResult = fileService.GetTesterResult(codeFilePath) };
+            var result = new Result { 
+                                        ProblemName = Path.GetFileNameWithoutExtension(codeFilePath),
+                                        Language = Utilities.GetLangaugeNameFromExtension(Path.GetExtension(codeFilePath)),
+                                        ExecutionResult = fileService.GetTesterResult(codeFilePath)
+                                    };
 
             if (!result.ExecutionResult.Equals(ExecutionResult.CorrectAnswer))
             {
