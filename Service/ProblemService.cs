@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
 
+using DataAccessLayer;
+using DataAccessLayer.RepositoryInterfaces;
+
 using Domain.Models;
 
 using OnlineJudge.Service.Interfaces;
@@ -8,18 +11,23 @@ namespace OnlineJudge.Service
 {
     public class ProblemService : IProblemService
     {
+        private readonly IProblemRepository problemRepository;
+
+        public ProblemService()
+        {
+            problemRepository = new ProblemRepository();
+        }
+
         public Problem GetProblem(int id)
         {
-            return new Problem();
+            var problem = problemRepository.Get(id);
+
+            return problem;
         }
 
         public IList<Problem> GetAllProblems()
         {
-            var problems = new List<Problem>
-                               {
-                                   new Problem { Id = 1, ProblemName = "ADDNUM", Difficulty = "Easy" },
-                                   new Problem { Id = 2, ProblemName = "SUBNUM", Difficulty = "Easy" }
-                               };
+            var problems = problemRepository.GetAll();
 
             return problems;
         }

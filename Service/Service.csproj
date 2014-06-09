@@ -79,6 +79,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{cacf1e3d-764b-476d-ba21-30ea7ded813e}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{53189BD7-788D-406B-9E7D-8897C0B666F6}</Project>
       <Name>Domain</Name>
