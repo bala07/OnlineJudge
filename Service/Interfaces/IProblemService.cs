@@ -8,8 +8,12 @@ namespace OnlineJudge.Service.Interfaces
 {
     public interface IProblemService
     {
-        Problem GetProblem(int id);
+        Problem GetProblem(string name);
 
         IList<Problem> GetAllProblems();
+
+        Problem GetProblemWithStatement(string name);
+
+        IList<Problem> GetAllProblemsWithStatements();
     }
 }

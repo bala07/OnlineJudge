@@ -9,5 +9,7 @@
         public string Location { get; set; }
 
         public string Difficulty { get; set; }
+
+        public string Statement { get; set; }
     }
 }
