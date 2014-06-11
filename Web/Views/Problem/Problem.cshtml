@@ -9,7 +9,8 @@
 @using (Html.BeginRouteForm("ProblemSubmit", new { problemCode = @Model.Code }, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <input type="file" name="file"/>
-    <input type="submit" value="OK"/>
+    <input type="submit" value="OK" class="ui-buttonset"/>
+    @Html.Hidden("problemCode", @Model.Code);
 }
 
 <hr/>

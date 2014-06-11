@@ -4,6 +4,6 @@ namespace OnlineJudge.Service.Interfaces
 {
     public interface ITesterService
     {
-        Result TestCode(string codeFilePath);
+        Result TestCode(string codeFilePath, string problemCode);
     }
 }

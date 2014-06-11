@@ -19,14 +19,14 @@ namespace OnlineJudge.Service
             pathService = new PathService();
         }
 
-        public Result TestCode(string codeFilePath)
+        public Result TestCode(string codeFilePath, string problemCode)
         {
-            var tester = TesterFactory.GetTester(codeFilePath);
+            var tester = TesterFactory.GetTester(problemCode);
 
             tester.Test(codeFilePath);
 
             var result = new Result { 
-                                        ProblemName = Path.GetFileNameWithoutExtension(codeFilePath),
+                                        ProblemName = problemCode,
                                         Language = Utilities.GetLangaugeNameFromExtension(Path.GetExtension(codeFilePath)),
                                         ExecutionResult = fileService.GetTesterResult(codeFilePath)
                                     };

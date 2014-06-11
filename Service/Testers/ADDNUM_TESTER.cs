@@ -2,7 +2,7 @@
 
 namespace OnlineJudge.Service.Testers
 {
-    class TestClassTester : BaseTester
+    public class ADDNUM_TESTER : BaseTester
     {
         public override void Test(string codeFilePath)
         {

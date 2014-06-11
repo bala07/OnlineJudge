@@ -36,7 +36,7 @@ namespace OnlineJudge.Web.Controllers
         }
 
         [System.Web.Mvc.HttpPost]
-        public ActionResult Submit(HttpPostedFileBase file)
+        public ActionResult Submit(HttpPostedFileBase file, string problemCode)
         {
             var codeFilePath = fileService.SaveUploadedFileToDisk(file);
 
@@ -45,7 +45,7 @@ namespace OnlineJudge.Web.Controllers
                 throw new Exception("Invalid file uploaded");
             }
 
-            var result = this.testerService.TestCode(codeFilePath);
+            var result = this.testerService.TestCode(codeFilePath, problemCode);
 
             return this.View("Result", result);
         }

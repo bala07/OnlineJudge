@@ -5,13 +5,18 @@ namespace OnlineJudge.Service.Testers
 {
     public class TesterFactory
     {
-        public static ITester GetTester(string codeFilePath)
+        public static ITester GetTester(string problemCode)
         {
-            var codeFileName = Path.GetFileNameWithoutExtension(codeFilePath);
-            
-            var testerType = "OnlineJudge.Service.Testers." + codeFileName + "Tester";
+            var testerType = "OnlineJudge.Service.Testers." + problemCode + "_TESTER";
 
-            return (ITester)Activator.CreateInstance(Type.GetType(testerType));
+            var type = Type.GetType(testerType);
+
+            if (type == null)
+            {
+                throw new Exception("Tester type not valid!");
+            }
+
+            return (ITester)Activator.CreateInstance(type);
         }
     }
 }

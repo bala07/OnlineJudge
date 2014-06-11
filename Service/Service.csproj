@@ -61,7 +61,7 @@
     <Compile Include="Testers\BaseTester.cs" />
     <Compile Include="Testers\TesterFactory.cs" />
     <Compile Include="Testers\ITester.cs" />
-    <Compile Include="Testers\TestClassTester.cs" />
+    <Compile Include="Testers\ADDNUM_TESTER.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
