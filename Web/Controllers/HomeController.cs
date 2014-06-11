@@ -26,21 +26,5 @@ namespace OnlineJudge.Web.Controllers
         {
             return this.View("Home");
         }
-
-        [HttpPost]
-        public ActionResult Submit(HttpPostedFileBase file)
-        {
-            var codeFilePath = fileService.SaveUploadedFileToDisk(file);
-
-            if (codeFilePath == null)
-            {
-                throw new Exception("Invalid file uploaded");
-            }
-
-            var results = this.testerService.TestCode(codeFilePath);
-
-            return this.View("Result/Result");
-        }
-
     }
 }

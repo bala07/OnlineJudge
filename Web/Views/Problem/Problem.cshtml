@@ -1,0 +1,15 @@
+﻿@model Domain.Models.Problem
+
+<h3> @Model.Name </h3>
+
+<h4> Difficulty: @Model.Difficulty</h4>
+
+<p>
+    @Model.Statement
+</p>
+
+@using (Html.BeginRouteForm("ProblemSubmit", new { problemName = @Model.Name }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="file"/>
+    <input type="submit" value="OK"/>
+}

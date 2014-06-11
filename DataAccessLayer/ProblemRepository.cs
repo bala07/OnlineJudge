@@ -9,19 +9,23 @@ namespace DataAccessLayer
 {
     public class ProblemRepository : IProblemRepository
     {
+        private readonly OnlineJudgeContext onlineJudgeContext;
 
         public ProblemRepository()
         {
+            onlineJudgeContext = new OnlineJudgeContext();
         }
 
         public Problem Get(string name)
         {
-            return null;
+            var problem = onlineJudgeContext.Problems.FirstOrDefault(problem1 => problem1.Name == name);
+
+            return problem;
         }
 
         public IList<Problem> GetAll()
         {
-            return null;
+            return onlineJudgeContext.Problems.ToList();
         }
     }
 }

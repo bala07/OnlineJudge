@@ -1,15 +1,18 @@
-﻿namespace Domain.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Domain.Models
 {
     public class Problem
     {
-        public int Id { get; set; }
+        public virtual int Id { get; set; }
 
-        public string Name { get; set; }
+        public virtual string Name { get; set; }
 
-        public string Location { get; set; }
+        public virtual string Location { get; set; }
 
-        public string Difficulty { get; set; }
+        public virtual string Difficulty { get; set; }
 
-        public string Statement { get; set; }
+        [NotMapped]
+        public virtual string Statement { get; set; }
     }
 }
