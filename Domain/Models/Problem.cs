@@ -8,6 +8,8 @@ namespace Domain.Models
 
         public virtual string Name { get; set; }
 
+        public virtual string Code { get; set; }
+
         public virtual string Location { get; set; }
 
         public virtual string Difficulty { get; set; }

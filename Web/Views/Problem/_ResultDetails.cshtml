@@ -1,0 +1,28 @@
+﻿@using Domain.Models
+@model Result
+
+<div id="ResultTable">
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td>Problem name</td>
+                <td>@Model.ProblemName</td>
+            </tr>
+            <tr>
+                <td>Language used</td>
+                <td>@Model.Language</td>
+            </tr>
+            <tr>
+                <td>Status</td>
+                <td>@Model.ExecutionResult</td>
+            </tr>
+            @if (@Model.ExecutionResult != ExecutionResult.CorrectAnswer)
+            {
+                <tr>
+                    <td>Error</td>
+                    <td>@Model.ErrorMessage</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

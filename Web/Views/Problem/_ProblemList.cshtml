@@ -1,9 +1,10 @@
 ﻿@model IList<Domain.Models.Problem>
 
+
 <table class="table table-striped table-bordered table-hover">
     <thead>
         <tr>
-            <th>Id</th>
+            <th>Problem Code</th>
             <th>Problem Name</th>
             <th>Difficulty level</th>    
         </tr>
@@ -12,8 +13,8 @@
         @foreach (var problem in Model)
         {
             <tr>
-                <td>@problem.Id</td>
-                <td><a href="@Url.RouteUrl("Problem", new { @problem.Name })"> @problem.Name </a></td>
+                <td>@problem.Code</td>
+                <td><a href="@Url.RouteUrl("Problem", new { problemCode = @problem.Code })"> @problem.Name </a></td>
                 <td>@problem.Difficulty</td>
             </tr>
         }

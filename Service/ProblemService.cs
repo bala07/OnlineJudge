@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.IO;
+using System.Web;
 
 using DataAccessLayer;
 using DataAccessLayer.RepositoryInterfaces;
@@ -36,10 +36,12 @@ namespace OnlineJudge.Service
             return problems;
         }
 
-        public Problem GetProblemWithStatement(string name)
+        public Problem GetProblemWithStatement(string problemCode)
         {
-            var problem = this.GetProblem(name);
-            problem.Statement = fileService.ReadFromFile(problem.Location);
+            var problem = this.GetProblem(problemCode);
+
+            var location = HttpContext.Current.Server.MapPath("~/App_Data" + problem.Location);
+            problem.Statement = fileService.ReadFromFile(location);
 
             return problem;
         }
@@ -50,7 +52,8 @@ namespace OnlineJudge.Service
 
             foreach (var problem in problems)
             {
-                problem.Statement = fileService.ReadFromFile(problem.Location);
+                var location = HttpContext.Current.Server.MapPath("~/App_Data" + problem.Location);
+                problem.Statement = fileService.ReadFromFile(location);
             }
 
             return problems;

@@ -12,7 +12,7 @@ namespace OnlineJudge.Service.Interfaces
 
         IList<Problem> GetAllProblems();
 
-        Problem GetProblemWithStatement(string name);
+        Problem GetProblemWithStatement(string problemCode);
 
         IList<Problem> GetAllProblemsWithStatements();
     }

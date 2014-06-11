@@ -28,9 +28,9 @@ namespace OnlineJudge.Web.Controllers
             return this.View("List", problems);
         }
 
-        public ActionResult Get(string name)
+        public ActionResult Get(string problemCode)
         {
-            var problem = problemService.GetProblemWithStatement(name);
+            var problem = problemService.GetProblemWithStatement(problemCode);
 
             return this.View("Problem", problem);
         }
@@ -45,9 +45,9 @@ namespace OnlineJudge.Web.Controllers
                 throw new Exception("Invalid file uploaded");
             }
 
-            var results = this.testerService.TestCode(codeFilePath);
+            var result = this.testerService.TestCode(codeFilePath);
 
-            return this.View("Result/Result");
+            return this.View("Result", result);
         }
 
 

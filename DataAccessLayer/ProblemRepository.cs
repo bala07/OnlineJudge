@@ -16,9 +16,9 @@ namespace DataAccessLayer
             onlineJudgeContext = new OnlineJudgeContext();
         }
 
-        public Problem Get(string name)
+        public Problem Get(string problemCode)
         {
-            var problem = onlineJudgeContext.Problems.FirstOrDefault(problem1 => problem1.Name == name);
+            var problem = onlineJudgeContext.Problems.FirstOrDefault(problem1 => problem1.Code == problemCode);
 
             return problem;
         }

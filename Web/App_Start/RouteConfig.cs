@@ -11,14 +11,14 @@ namespace Web
 
             routes.MapRoute(
                 name: "ProblemSubmit",
-                url: "Problem/View/{problemName}/submit",
+                url: "Problem/View/{problemCode}/submit",
                 defaults: new { controller = "Problem", action = "Submit" },
                 constraints: new { httpMethod = new HttpMethodConstraint("POST") });
 
             routes.MapRoute(
                 name: "Problem", 
-                url: "Problem/View/{name}", 
-                defaults: new { controller = "Problem", action = "Get", name = UrlParameter.Optional });
+                url: "Problem/View/{problemCode}", 
+                defaults: new { controller = "Problem", action = "Get", problemCode = UrlParameter.Optional });
 
         
             routes.MapRoute(

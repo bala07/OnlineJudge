@@ -2,7 +2,6 @@
 
 using Domain.Models;
 
-using OnlineJudge.Service.CodeExecutionService;
 using OnlineJudge.Service.Interfaces;
 using OnlineJudge.Service.Testers;
 

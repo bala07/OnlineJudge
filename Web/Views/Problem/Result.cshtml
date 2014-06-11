@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Domain.Models.Result
+
+@{
     ViewBag.Title = "Result";
 }
 
@@ -6,5 +8,8 @@
 
 <h2> Your code has been tested and the result details are below </h2>
 
-@Html.Partial("~/Views/Problem/Result/_ResultDetails.cshtml")
+@{
+    Html.RenderPartial("~/Views/Problem/_ResultDetails.cshtml", Model);
+}
 
+<hr/>

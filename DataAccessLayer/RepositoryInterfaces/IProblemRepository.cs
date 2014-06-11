@@ -6,7 +6,7 @@ namespace DataAccessLayer.RepositoryInterfaces
 {
     public interface IProblemRepository
     {
-        Problem Get(string name);
+        Problem Get(string problemCode);
 
         IList<Problem> GetAll();
     }
