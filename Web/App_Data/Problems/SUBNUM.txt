@@ -1,0 +1,18 @@
+STATAMENT:
+
+Your goal in this problem is two read two numbers from the input file, subtract them and write the result to the output file.
+
+SPECIFICATIONS:
+
+The input file to read from is "input.txt".
+The file has two numbers in a single line with a space in between them.
+The result has to be written in a single line in a file named "output.txt".
+
+SAMPLE INPUT:
+
+2 3
+
+SAMPLE OUTPUT:
+
+-1
+
