@@ -25,7 +25,7 @@ namespace OnlineJudge.Service
 
         public string GetErrorFilePath(string codeFilePath)
         {
-            var codeFileName = Path.GetFileName(codeFilePath);
+            var codeFileName = Path.GetFileNameWithoutExtension(codeFilePath);
             var codeFileDirectory = Path.GetDirectoryName(codeFilePath);
 
             return codeFileDirectory + "\\" + codeFileName + "_error.txt";
