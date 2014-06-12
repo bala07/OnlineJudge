@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Web;
 
 using OnlineJudge.Service.Constants;
 using OnlineJudge.Service.Interfaces;
@@ -29,6 +30,11 @@ namespace OnlineJudge.Service
             var codeFileDirectory = Path.GetDirectoryName(codeFilePath);
 
             return codeFileDirectory + "\\" + codeFileName + "_error.txt";
+        }
+
+        public string GetAppDataPath()
+        {
+            return HttpContext.Current.Server.MapPath("~/App_Data");
         }
     }
 }

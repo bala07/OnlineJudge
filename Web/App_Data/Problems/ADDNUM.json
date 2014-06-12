@@ -1,0 +1,29 @@
+{
+	"Description": "The goal of this problem is to sum two given numbers and display the sum as the result",
+
+
+	"Specification": "You will have to read from the input file - \"input.txt\". 
+					  This file contains a single line with two space separated integers. \n 
+					  The sum of these two numbers should be written tas a single line to the output file - \"output.txt\" \n
+					  Look at the below samples for a better understanding of the input and output formats",
+
+
+	"SampleInputs": [ 
+		{
+			"InputLines": [ "2 3" ]
+		},
+		{
+			"InputLines": [ "3 4" ]
+		}		
+	],
+
+
+	"SampleOutputs": [ 
+		{
+			"OutputLines": [ "5" ]
+		},
+		{
+			"OutputLines": [ "7" ]
+		}
+	]
+}

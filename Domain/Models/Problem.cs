@@ -15,6 +15,6 @@ namespace Domain.Models
         public virtual string Difficulty { get; set; }
 
         [NotMapped]
-        public virtual string Statement { get; set; }
+        public virtual ProblemStatement ProblemStatement { get; set; }
     }
 }

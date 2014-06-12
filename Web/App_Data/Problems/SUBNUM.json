@@ -1,0 +1,29 @@
+{
+	"Description": "The goal of this problem is to subtract two given numbers and display the result",
+
+
+	"Specification": "You will have to read from the input file - \"input.txt\". 
+					  This file contains a single line with two space separated integers. \n 
+					  The difference of these two numbers should be written tas a single line to the output file - \"output.txt\" \n
+					  Look at the below samples for a better understanding of the input and output formats",
+
+
+	"SampleInputs": [ 
+		{
+			"InputLines": [ "2 3" ]
+		},
+		{
+			"InputLines": [ "4 3" ]
+		}		
+	],
+
+
+	"SampleOutputs": [ 
+		{
+			"OutputLines": [ "-1" ]
+		},
+		{
+			"OutputLines": [ "1" ]
+		}
+	]
+}

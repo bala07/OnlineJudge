@@ -42,7 +42,10 @@
   <ItemGroup>
     <Compile Include="Models\ExecutionResult.cs" />
     <Compile Include="Models\Problem.cs" />
+    <Compile Include="Models\ProblemStatement.cs" />
     <Compile Include="Models\Result.cs" />
+    <Compile Include="Models\SampleInput.cs" />
+    <Compile Include="Models\SampleOutput.cs" />
     <Compile Include="Models\TestCase.cs" />
     <Compile Include="Models\TestSuite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

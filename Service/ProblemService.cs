@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Web;
 
 using DataAccessLayer;
 using DataAccessLayer.RepositoryInterfaces;
 
 using Domain.Models;
+
+using Newtonsoft.Json;
 
 using OnlineJudge.Service.Interfaces;
 
@@ -16,10 +19,13 @@ namespace OnlineJudge.Service
 
         private readonly IFileService fileService;
 
+        private readonly IPathService pathService;
+
         public ProblemService()
         {
             problemRepository = new ProblemRepository();
             fileService = new FileService();
+            pathService = new PathService();
         }
 
         public Problem GetProblem(string name)
@@ -39,9 +45,7 @@ namespace OnlineJudge.Service
         public Problem GetProblemWithStatement(string problemCode)
         {
             var problem = this.GetProblem(problemCode);
-
-            var location = HttpContext.Current.Server.MapPath("~/App_Data" + problem.Location);
-            problem.Statement = fileService.ReadFromFile(location);
+            problem.ProblemStatement = GetProblemStatement(problemCode);
 
             return problem;
         }
@@ -52,11 +56,18 @@ namespace OnlineJudge.Service
 
             foreach (var problem in problems)
             {
-                var location = HttpContext.Current.Server.MapPath("~/App_Data" + problem.Location);
-                problem.Statement = fileService.ReadFromFile(location);
+                problem.ProblemStatement = this.GetProblemStatement(problem.Code);
             }
 
             return problems;
+        }
+
+        private ProblemStatement GetProblemStatement(string problemCode)
+        {
+            var baseDir = pathService.GetAppDataPath();
+            var problemFilePath = baseDir + "\\problems\\" + problemCode + ".json";
+
+            return JsonConvert.DeserializeObject<ProblemStatement>(File.ReadAllText(problemFilePath));
         }
 
 
