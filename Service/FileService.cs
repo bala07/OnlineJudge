@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Web;
 
 using Domain.Models;
@@ -64,6 +67,35 @@ namespace OnlineJudge.Service
             using (var fileWriter = new StreamWriter(filePath))
             {
                 fileWriter.WriteLine(contents);
+            }
+        }
+
+        public string[] ReadLinesFromFile(string filePath)
+        {
+            IList<string> linesFromFile = new List<string>();
+
+            using (var fileReader = new StreamReader(filePath))
+            {
+                var inputLine = fileReader.ReadLine();
+
+                while (inputLine != null)
+                {
+                    linesFromFile.Add(inputLine);
+                    inputLine = fileReader.ReadLine();
+                }
+            }
+
+            return linesFromFile.ToArray();
+        }
+
+        public void WriteLinesToFile(string filePath, string[] contents)
+        {
+            using (var fileWriter = new StreamWriter(filePath))
+            {
+                foreach (string line in contents)
+                {
+                    fileWriter.WriteLine(line);
+                }
             }
         }
     }

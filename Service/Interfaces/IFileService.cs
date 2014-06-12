@@ -13,5 +13,9 @@ namespace OnlineJudge.Service.Interfaces
         string ReadFromFile(string filePath);
 
         void WriteToFile(string filePath, string contents);
+
+        string[] ReadLinesFromFile(string filePath);
+
+        void WriteLinesToFile(string filePath, string[] contents);
     }
 }
