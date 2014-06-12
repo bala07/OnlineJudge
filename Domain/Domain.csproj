@@ -43,6 +43,8 @@
     <Compile Include="Models\ExecutionResult.cs" />
     <Compile Include="Models\Problem.cs" />
     <Compile Include="Models\Result.cs" />
+    <Compile Include="Models\TestCase.cs" />
+    <Compile Include="Models\TestSuite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
