@@ -1,16 +1,56 @@
 ﻿@model Domain.Models.Problem
 
-<h3>  @Model.Code - @Model.Name</h3>
+<h2>  @Model.Code - @Model.Name</h2>
+
+<p><b><em>Description:</em></b></p>
 
 <p>
-    @Model.Statement
+    @Model.ProblemStatement.Description;
 </p>
+
+<p><b><em>Specification:</em></b></p>
+
+<p>
+    @Model.ProblemStatement.Specification;
+</p>
+
+<p>
+    @{
+        for (var idx = 0; idx < @Model.ProblemStatement.SampleInputs.Count; ++idx)
+        {
+            var sampleInput = @Model.ProblemStatement.SampleInputs[idx];
+            var sampleOutput = @Model.ProblemStatement.SampleOutputs[idx];
+            
+            <p><b>Sample Input - @idx</b></p>
+            <p>
+                @{
+                    foreach (var inputLine in sampleInput.InputLines)
+                    {
+                        <p> @inputLine </p>
+                    }
+                }
+            </p>
+            
+            <p> <b> Sample Output - @idx</b></p>
+            <p>
+                @{
+                    foreach (var outputLine in sampleOutput.OutputLines)
+                    {
+                        <p> @outputLine </p>
+                    }
+                }
+            </p>
+        }
+    }
+</p>
+
+<hr/>
 
 @using (Html.BeginRouteForm("ProblemSubmit", new { problemCode = @Model.Code }, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <input type="file" name="file"/>
-    <input type="submit" value="OK" class="ui-buttonset"/>
+    <input class = "input-large" type="file" name="file"/>
+    <input type="submit" value="OK" class="btn-primary"/>
     @Html.Hidden("problemCode", @Model.Code);
-}
+    }
 
-<hr/>
+    <hr/>
