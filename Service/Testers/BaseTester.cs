@@ -20,7 +20,7 @@ namespace OnlineJudge.Service.Testers
             this.FileService = new FileService();
         }
 
-        public virtual void Test(string codeFilePath)
+        public virtual void Test(string codeFilePath, TestSuite testSuite)
         {
         }
 
