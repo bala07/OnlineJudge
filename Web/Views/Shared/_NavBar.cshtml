@@ -6,6 +6,26 @@
                 <li><a href="@Url.Action("List", "Problem")">Problems</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
+                
+            </ul>
+            <ul class ="nav pull-right">
+                <li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <div>
+                            <a href="@Url.Action("Logout", "User")">Logout</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div>
+                            <a href="@Url.Action("Login", "User")">Login | </a>
+                        
+                            <a href="@Url.Action("Registration", "User")">Register</a>    
+                        </div>
+                        
+                    }
+                </li>
             </ul>
         </div>
     </div>

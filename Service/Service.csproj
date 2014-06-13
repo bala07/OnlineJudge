@@ -46,8 +46,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IProblemService.cs" />
+    <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="ProblemService.cs" />
     <Compile Include="Testers\Tester.cs" />
+    <Compile Include="UserService.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="Constants\FileConstants.cs" />
     <Compile Include="TesterService.cs" />

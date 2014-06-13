@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Web;
-using System.Web.Http;
 using System.Web.Mvc;
 
 using OnlineJudge.Service;
@@ -8,6 +7,7 @@ using OnlineJudge.Service.Interfaces;
 
 namespace OnlineJudge.Web.Controllers
 {
+    [Authorize]
     public class ProblemController : Controller
     {
         private readonly IProblemService problemService;
@@ -35,7 +35,7 @@ namespace OnlineJudge.Web.Controllers
             return this.View("Problem", problem);
         }
 
-        [System.Web.Mvc.HttpPost]
+        [HttpPost]
         public ActionResult Submit(HttpPostedFileBase file, string problemCode)
         {
             var codeFilePath = fileService.SaveUploadedFileToDisk(file);
