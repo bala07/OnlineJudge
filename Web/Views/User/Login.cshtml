@@ -6,29 +6,33 @@
 
 <h2>Login</h2>
 
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary(true, "Login failed. Check your login details");
-    <div>
-        <fieldset>
-            <legend>Login form</legend>
+<div id="login_form">
 
-            <div>@Html.LabelFor(u => u.Email)</div>
-            <div>
-                @Html.TextBoxFor(u => u.Email)
-                @Html.ValidationMessageFor(u => u.Email)
-            </div>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true, "Login failed. Check your login details");
+        <div>
+            <fieldset>
+                <legend>Enter your credentials</legend>
 
-            <div>@Html.LabelFor(u => u.Password)</div>
-            <div>
-                @Html.PasswordFor(u => u.Password)
-                @Html.ValidationMessageFor(u => u.Password)
-            </div>
+                <div>@Html.LabelFor(u => u.Email)</div>
+                <div>
+                    @Html.TextBoxFor(u => u.Email)
+                    @Html.ValidationMessageFor(u => u.Email)
+                </div>
+
+                <div>@Html.LabelFor(u => u.Password)</div>
+                <div>
+                    @Html.PasswordFor(u => u.Password)
+                    @Html.ValidationMessageFor(u => u.Password)
+                </div>
             
-            <input type="submit" value="Login"/>
+                <input type="submit" value="Login" class="btn-primary"/>
 
-        </fieldset>
-    </div>
-}
+            </fieldset>
+        </div>
+    }
+    
+</div>
 
 <hr/>
