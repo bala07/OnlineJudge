@@ -10,6 +10,7 @@ using OnlineJudge.Web.Models;
 
 namespace OnlineJudge.Web.Controllers
 {
+    [HandleError(View = "Error")]
     public class UserController : Controller
     {
         private readonly IUserService userService;
@@ -33,6 +34,8 @@ namespace OnlineJudge.Web.Controllers
         [HttpPost]
         public ActionResult Login(UserLoginViewModel user)
         {
+
+
             if (ModelState.IsValid)
             {
                 if (this.IsValid(user.Email, user.Password))

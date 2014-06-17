@@ -8,6 +8,7 @@ using OnlineJudge.Service.Interfaces;
 namespace OnlineJudge.Web.Controllers
 {
     [Authorize]
+    [HandleError(View = "Error")]
     public class ProblemController : Controller
     {
         private readonly IProblemService problemService;

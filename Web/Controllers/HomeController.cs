@@ -5,6 +5,7 @@ using OnlineJudge.Service.Interfaces;
 
 namespace OnlineJudge.Web.Controllers
 {
+    [HandleError(View = "Error")]
     public class HomeController : Controller
     {
         private readonly IFileService fileService;
