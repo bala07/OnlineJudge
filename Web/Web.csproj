@@ -196,6 +196,7 @@
     <Content Include="Content\bootstrap\js\bootstrap.js" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js" />
     <Content Include="Content\bootstrap\sample.html" />
+    <Content Include="Content\scripts\OnlineJudge.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
