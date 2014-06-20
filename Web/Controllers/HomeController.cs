@@ -5,7 +5,6 @@ using OnlineJudge.Service.Interfaces;
 
 namespace OnlineJudge.Web.Controllers
 {
-    [HandleError(View = "Error")]
     public class HomeController : Controller
     {
         private readonly IFileService fileService;
@@ -21,9 +20,23 @@ namespace OnlineJudge.Web.Controllers
             this.pathService = new PathService();
         }
 
+        [HttpGet]
         public ActionResult Home()
         {
             return this.View("Home");
         }
+
+        [HttpGet]
+        public ActionResult About()
+        {
+            return this.View();
+        }
+
+        [HttpGet]
+        public ActionResult ContactUs()
+        {
+            return this.View();
+        }
+
     }
 }

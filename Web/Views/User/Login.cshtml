@@ -8,7 +8,7 @@
 
 <div id="login_form">
 
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Login", "User", new { returnUrl = Request.QueryString["ReturnUrl"] }, FormMethod.Post))
     {
         @Html.ValidationSummary(true, "Login failed. Check your login details");
         <div>

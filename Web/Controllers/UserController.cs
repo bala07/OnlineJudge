@@ -10,7 +10,6 @@ using OnlineJudge.Web.Models;
 
 namespace OnlineJudge.Web.Controllers
 {
-    [HandleError(View = "Error")]
     public class UserController : Controller
     {
         private readonly IUserService userService;
@@ -32,15 +31,18 @@ namespace OnlineJudge.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(UserLoginViewModel user)
+        public ActionResult Login(UserLoginViewModel user, string returnUrl)
         {
-
-
             if (ModelState.IsValid)
             {
                 if (this.IsValid(user.Email, user.Password))
                 {
                     FormsAuthentication.SetAuthCookie(user.Email, false);
+                    if (!String.IsNullOrEmpty(returnUrl))
+                    {
+                        return this.Redirect(returnUrl);
+                    }
+
                     return RedirectToAction("Home", "Home");
                 }
 
