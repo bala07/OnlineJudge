@@ -1,56 +1,60 @@
 ﻿@model Domain.Models.Problem
 
-<h2>  @Model.Code - @Model.Name</h2>
+<div class ="outlined_box">
+    <h2> <u> @Model.Code - @Model.Name </u> </h2>
+    <hr/>
 
-<p><b><em>Description:</em></b></p>
+    <p><b><em><u>Description:</u></em></b></p>
 
-<p>
-    @Model.ProblemStatement.Description;
-</p>
+    <p>
+        @Model.ProblemStatement.Description;
+    </p>
 
-<p><b><em>Specification:</em></b></p>
+    <p><b><em><u>Specification:</u></em></b></p>
 
-<p>
-    @Model.ProblemStatement.Specification;
-</p>
+    <p>
+        @Model.ProblemStatement.Specification;
+    </p>
 
-<p>
-    @{
-        for (var idx = 0; idx < @Model.ProblemStatement.SampleInputs.Count; ++idx)
-        {
-            var sampleInput = @Model.ProblemStatement.SampleInputs[idx];
-            var sampleOutput = @Model.ProblemStatement.SampleOutputs[idx];
+    <p>
+        @{
+            for (var idx = 0; idx < @Model.ProblemStatement.SampleInputs.Count; ++idx)
+            {
+                var sampleInput = @Model.ProblemStatement.SampleInputs[idx];
+                var sampleOutput = @Model.ProblemStatement.SampleOutputs[idx];
             
-            <p><b>Sample Input - @idx</b></p>
-            <p>
-                @{
-                    foreach (var inputLine in sampleInput.InputLines)
-                    {
-                        <p> @inputLine </p>
+                <p><b><u>Sample Input - @idx :</u></b></p>
+                <p>
+                    @{
+                        foreach (var inputLine in sampleInput.InputLines)
+                        {
+                            <p> @inputLine </p>
+                        }
                     }
-                }
-            </p>
+                </p>
             
-            <p> <b> Sample Output - @idx</b></p>
-            <p>
-                @{
-                    foreach (var outputLine in sampleOutput.OutputLines)
-                    {
-                        <p> @outputLine </p>
+                <p> <b> <u> Sample Output - @idx : </u> </b></p>
+                <p>
+                    @{
+                        foreach (var outputLine in sampleOutput.OutputLines)
+                        {
+                            <p> @outputLine </p>
+                        }
                     }
-                }
-            </p>
+                </p>
+            }
         }
-    }
-</p>
-
-<hr/>
-
-@using (Html.BeginRouteForm("ProblemSubmit", new { problemCode = @Model.Code }, FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    <input class = "input-large" type="file" name="file"/>
-    <input type="submit" value="OK" class="btn-primary"/>
-    @Html.Hidden("problemCode", @Model.Code);
-    }
+    </p>
 
     <hr/>
+
+    @using (Html.BeginRouteForm("ProblemSubmit", new { problemCode = @Model.Code }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input class = "input-large" type="file" name="file"/>
+        <input type="submit" value="OK" class="btn-primary"/>
+        @Html.Hidden("problemCode", @Model.Code);
+    }
+
+</div>
+
+<hr/>
