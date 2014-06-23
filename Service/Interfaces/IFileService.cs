@@ -6,7 +6,7 @@ namespace OnlineJudge.Service.Interfaces
 {
     public interface IFileService
     {
-        string SaveUploadedFileToDisk(HttpPostedFileBase file);
+        string SaveUploadedFileToDisk(HttpPostedFileBase file, string userDirectory);
 
         ExecutionResult GetTesterResult(string codeFilePath);
 
@@ -17,5 +17,7 @@ namespace OnlineJudge.Service.Interfaces
         string[] ReadLinesFromFile(string filePath);
 
         void WriteLinesToFile(string filePath, string[] contents);
+
+        string PrepareDirectoryForUser(string email);
     }
 }

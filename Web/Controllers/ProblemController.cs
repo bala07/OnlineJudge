@@ -38,7 +38,8 @@ namespace OnlineJudge.Web.Controllers
         [HttpPost]
         public ActionResult Submit(HttpPostedFileBase file, string problemCode)
         {
-            var codeFilePath = fileService.SaveUploadedFileToDisk(file);
+            var userDir = fileService.PrepareDirectoryForUser(this.User.Identity.Name);
+            var codeFilePath = fileService.SaveUploadedFileToDisk(file, userDir);
 
             if (codeFilePath == null)
             {

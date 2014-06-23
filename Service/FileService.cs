@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 
 using Domain.Models;
@@ -21,12 +22,12 @@ namespace OnlineJudge.Service
             pathService = new PathService();
         }
 
-        public string SaveUploadedFileToDisk(HttpPostedFileBase file)
+        public string SaveUploadedFileToDisk(HttpPostedFileBase file, string userDirectory)
         {
             if (file != null && file.ContentLength > 0)
             {
                 var fileName = Path.GetFileName(file.FileName);
-                var path = Path.Combine(FileConstants.BaseDirectory, fileName);
+                var path = Path.Combine(userDirectory, fileName);
                 file.SaveAs(path);
 
                 return path;
@@ -97,6 +98,19 @@ namespace OnlineJudge.Service
                     fileWriter.WriteLine(line);
                 }
             }
+        }
+
+        public string PrepareDirectoryForUser(string email)
+        {
+            var basePath = HttpContext.Current.Server.MapPath("~/App_Data/UserSubmissions");
+            var userDir = Path.Combine(basePath, email);
+
+            if (!Directory.Exists(userDir))
+            {
+                Directory.CreateDirectory(userDir);
+            }
+
+            return userDir;
         }
     }
 }
