@@ -14,9 +14,9 @@ namespace OnlineJudge.Service
     {
         private readonly IPathService pathService;
 
-        public FileService()
+        public FileService(IPathService pathService)
         {
-            pathService = new PathService();
+            this.pathService = pathService;
         }
 
         public string SaveUploadedFileToDisk(HttpPostedFileBase file, string userDirectory)

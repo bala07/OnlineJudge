@@ -1,6 +1,5 @@
 ﻿using System.Web.Mvc;
 
-using OnlineJudge.Service;
 using OnlineJudge.Service.Interfaces;
 
 namespace OnlineJudge.Web.Controllers
@@ -9,11 +8,10 @@ namespace OnlineJudge.Web.Controllers
     public class ProblemController : Controller
     {
         private readonly IProblemService problemService;
-        
 
-        public ProblemController()
+        public ProblemController(IProblemService problemService)
         {
-            problemService = new ProblemService();
+            this.problemService = problemService;
         }
 
         public ActionResult List()

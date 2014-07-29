@@ -17,15 +17,12 @@ namespace OnlineJudge.Service
     {
         private readonly IProblemRepository problemRepository;
 
-        private readonly IFileService fileService;
-
         private readonly IPathService pathService;
 
-        public ProblemService()
+        public ProblemService(IProblemRepository problemRepository, IPathService pathService)
         {
-            problemRepository = new ProblemRepository();
-            fileService = new FileService();
-            pathService = new PathService();
+            this.problemRepository = problemRepository;
+            this.pathService = pathService;
         }
 
         public Problem GetProblem(string name)

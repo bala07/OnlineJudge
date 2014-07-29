@@ -14,9 +14,9 @@ namespace OnlineJudge.Web.Controllers
     {
         private readonly IUserService userService;
 
-        public UserController()
+        public UserController(IUserService userService)
         {
-            userService = new UserService();
+            this.userService = userService;
         }
 
         public ActionResult Index()

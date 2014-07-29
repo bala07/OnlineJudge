@@ -17,10 +17,10 @@ namespace OnlineJudge.Service
 
         private readonly IPathService pathService;
 
-        public TesterService()
+        public TesterService(IFileService fileService, IPathService pathService)
         {
-            fileService = new FileService();
-            pathService = new PathService();
+            this.fileService = fileService;
+            this.pathService = pathService;
         }
 
         public Result TestCode(string codeFilePath, string problemCode)

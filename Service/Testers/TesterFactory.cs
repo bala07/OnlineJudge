@@ -1,10 +1,12 @@
-﻿namespace OnlineJudge.Service.Testers
+﻿using StructureMap;
+
+namespace OnlineJudge.Service.Testers
 {
     public class TesterFactory
     {
         public static ITester GetTester(string problemCode)
         {
-            return new Tester();
+            return ObjectFactory.GetInstance<Tester>();
         }
     }
 }

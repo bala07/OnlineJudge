@@ -13,9 +13,9 @@ namespace OnlineJudge.Service
     {
         private readonly IUserRepository userRepository;
 
-        public UserService()
+        public UserService(IUserRepository userRepository)
         {
-            this.userRepository = new UserRepository();
+            this.userRepository = userRepository;
         }
 
         public User GetUser(string email)

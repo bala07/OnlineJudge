@@ -13,11 +13,11 @@ namespace OnlineJudge.Service.Testers
 
         protected readonly IFileService FileService;
 
-        public BaseTester()
+        public BaseTester(ICodeExecutionService codeExecutionService, IPathService pathService, IFileService fileService)
         {
-            this.CodeExecutionService = new CodeExecutionServiceClient();
-            this.PathService = new PathService();
-            this.FileService = new FileService();
+            this.CodeExecutionService = codeExecutionService;
+            this.PathService = pathService;
+            this.FileService = fileService;
         }
 
         public virtual void Test(string codeFilePath, TestSuite testSuite)

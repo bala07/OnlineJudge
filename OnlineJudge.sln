@@ -2,6 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{F2F36278-B30F-4110-8F01-E09945EF801D}"
+	ProjectSection(SolutionItems) = preProject
+		TO DO.txt = TO DO.txt
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{4B763C13-82E8-48EA-BE1D-D469CA5D8A17}"
 EndProject

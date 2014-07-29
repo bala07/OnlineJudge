@@ -11,9 +11,9 @@ namespace OnlineJudge.Service
     {
         private readonly ISubmissionRepository submissionRepository;
 
-        public SubmissionService()
+        public SubmissionService(ISubmissionRepository submissionRepository)
         {
-            this.submissionRepository = new SubmissionRepository();
+            this.submissionRepository = submissionRepository;
         }
 
         public void Save(Submission submission)

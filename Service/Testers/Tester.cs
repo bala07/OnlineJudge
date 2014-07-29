@@ -2,10 +2,18 @@
 
 using Domain.Models;
 
+using OnlineJudge.Service.CodeExecutionService;
+using OnlineJudge.Service.Interfaces;
+
 namespace OnlineJudge.Service.Testers
 {
     public class Tester : BaseTester
     {
+        public Tester(ICodeExecutionService codeExecutionService, IPathService pathService, IFileService fileService)
+            : base(codeExecutionService, pathService, fileService)
+        {
+        }
+
         public override void Test(string codeFilePath, TestSuite testSuite)
         {
 

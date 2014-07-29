@@ -17,11 +17,11 @@ namespace OnlineJudge.Web.Controllers
         private readonly IFileService fileService;
         private readonly ISubmissionService submissionService;
 
-        public SubmissionController()
+        public SubmissionController(ITesterService testerService, IFileService fileService, ISubmissionService submissionService)
         {
-            testerService = new TesterService();
-            fileService = new FileService();
-            submissionService = new SubmissionService();
+            this.testerService = testerService;
+            this.fileService = fileService;
+            this.submissionService = submissionService;
         }
 
         [HttpGet]
