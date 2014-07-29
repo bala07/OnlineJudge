@@ -1,11 +1,10 @@
-﻿using System;
-using System.Web;
+﻿using System.Web;
 
 using Domain.Models;
 
 namespace OnlineJudge.Service.Interfaces
 {
-    public interface IFileService
+    public interface IFileService : IService
     {
         string SaveUploadedFileToDisk(HttpPostedFileBase file, string userDirectory);
 

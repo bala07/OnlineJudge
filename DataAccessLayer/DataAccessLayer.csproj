@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\ISubmissionRepository.cs" />
     <Compile Include="OnlineJudgeContext.cs" />
     <Compile Include="ProblemRepository.cs" />

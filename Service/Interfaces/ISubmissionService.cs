@@ -2,7 +2,7 @@
 
 namespace OnlineJudge.Service.Interfaces
 {
-    public interface ISubmissionService
+    public interface ISubmissionService : IService
     {
         void Save(Submission submission);
     }

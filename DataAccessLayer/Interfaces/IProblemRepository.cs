@@ -4,7 +4,7 @@ using Domain.Models;
 
 namespace DataAccessLayer.Interfaces
 {
-    public interface IProblemRepository
+    public interface IProblemRepository : IRepository
     {
         Problem Get(string problemCode);
 

@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
+﻿using System.Collections.Generic;
 
 using Domain.Models;
 
 namespace OnlineJudge.Service.Interfaces
 {
-    public interface IProblemService
+    public interface IProblemService : IService
     {
         Problem GetProblem(string name);
 

@@ -1,6 +1,6 @@
 ﻿namespace OnlineJudge.Service.Interfaces
 {
-    public interface IPathService
+    public interface IPathService : IService
     {
         string GetResultFilePath(string codeFilePath);
 

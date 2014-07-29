@@ -4,7 +4,7 @@ using Domain.Models;
 
 namespace OnlineJudge.Service.Interfaces
 {
-    public interface IUserService
+    public interface IUserService : IService
     {
         User GetUser(string email);
 

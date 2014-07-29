@@ -4,7 +4,7 @@ using Domain.Models;
 
 namespace DataAccessLayer.Interfaces
 {
-    public interface IUserRepository
+    public interface IUserRepository : IRepository
     {
         User Get(string email);
 

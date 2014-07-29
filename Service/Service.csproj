@@ -33,6 +33,7 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -46,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IProblemService.cs" />
+    <Compile Include="Interfaces\IService.cs" />
     <Compile Include="Interfaces\ISubmissionService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="ProblemService.cs" />
@@ -77,6 +79,7 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
     <None Include="Service References\CodeExecutionService\CodeExecutionService.wsdl" />
     <None Include="Service References\CodeExecutionService\CodeExecutionService.xsd">
       <SubType>Designer</SubType>
