@@ -177,6 +177,7 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProblemController.cs" />
+    <Compile Include="Controllers\SubmissionController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -237,8 +238,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Problem\Problem.cshtml" />
     <Content Include="Views\Problem\ProblemDisplay.cshtml" />
-    <Content Include="Views\Problem\Result.cshtml" />
-    <Content Include="Views\Problem\_ResultDetails.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\User\Registration.cshtml" />
@@ -247,10 +246,12 @@
     <Content Include="Views\Error\ServerError.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\ContactUs.cshtml" />
+    <Content Include="Views\Submission\_ResultDetails.cshtml" />
+    <Content Include="Views\Submission\Result.cshtml" />
+    <Content Include="Views\Submission\Submit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Problems\" />
-    <Folder Include="Views\Submit\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -281,9 +282,11 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>1554</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:43688/</IISUrl>
+          <IISUrl>http://localhost:8000/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:8000/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

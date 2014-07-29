@@ -1,0 +1,5 @@
+1) Add auto mapper for depedency injection
+2) Add nunit test framework and write tests
+3) Functionality related to MySubmission and BestSubmissions
+4) User rankings
+5) 

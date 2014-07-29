@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using System;
+using System.Web;
 
 using Domain.Models;
 
@@ -19,5 +20,7 @@ namespace OnlineJudge.Service.Interfaces
         void WriteLinesToFile(string filePath, string[] contents);
 
         string PrepareDirectoryForUser(string email);
+
+        string PrepareDirectoryForCurrentSubmission(string baseDir, string timeStamp);
     }
 }

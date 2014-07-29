@@ -2,7 +2,7 @@
 
 using Domain.Models;
 
-namespace DataAccessLayer.RepositoryInterfaces
+namespace DataAccessLayer.Interfaces
 {
     public interface IUserRepository
     {
@@ -10,6 +10,6 @@ namespace DataAccessLayer.RepositoryInterfaces
 
         IList<User> GetAll();
 
-        void Insert(User user);
+        void Create(User user);
     }
 }

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using DataAccessLayer.RepositoryInterfaces;
+using DataAccessLayer.Interfaces;
 
 using Domain.Models;
 
@@ -28,7 +28,7 @@ namespace DataAccessLayer
             return this.onlineJudgeContext.Users.ToList();
         }
 
-        public void Insert(User user)
+        public void Create(User user)
         {
             this.onlineJudgeContext.Users.Add(user);
             this.onlineJudgeContext.SaveChanges();

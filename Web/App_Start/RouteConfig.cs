@@ -10,15 +10,20 @@ namespace Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "ProblemSubmit",
-                url: "Problem/View/{problemCode}/submit",
-                defaults: new { controller = "Problem", action = "Submit" },
-                constraints: new { httpMethod = new HttpMethodConstraint("POST") });
+                name: "ProblemsList",
+                url: "Problems/List",
+                defaults: new { controller = "Problem", action = "List" });
+
 
             routes.MapRoute(
-                name: "Problem", 
-                url: "Problem/View/{problemCode}", 
-                defaults: new { controller = "Problem", action = "Get", problemCode = UrlParameter.Optional });
+                name: "ProblemDetails", 
+                url: "Problems/{problemCode}", 
+                defaults: new { controller = "Problem", action = "GetProblemDetails", problemCode = UrlParameter.Optional });
+
+            routes.MapRoute(
+                name: "Submit",
+                url: "Submit/{problemCode}",
+                defaults: new { controller = "Submission", action = "Submit", problemCode = UrlParameter.Optional });
 
         
             routes.MapRoute(

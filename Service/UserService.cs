@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 
 using DataAccessLayer;
-using DataAccessLayer.RepositoryInterfaces;
+using DataAccessLayer.Interfaces;
 
 using Domain.Models;
 
@@ -30,7 +30,7 @@ namespace OnlineJudge.Service
 
         public void AddUser(User user)
         {
-            this.userRepository.Insert(user);
+            this.userRepository.Create(user);
         }
     }
 }

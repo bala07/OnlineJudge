@@ -1,5 +1,18 @@
 ﻿@model Domain.Models.Problem
 
+<div class ="navbar">
+    <div class="navbar-inner">
+        <div class="container">
+            <ul class="nav">
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Submit" ? "active" : "")">
+                    <a href="@Url.RouteUrl("Submit", new { problemCode = @Model.Code })">Submit</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
 <div class ="outlined_box">
     <h2> <u> @Model.Code - @Model.Name </u> </h2>
     <hr/>
@@ -47,13 +60,6 @@
     </p>
 
     <hr/>
-
-    @using (Html.BeginRouteForm("ProblemSubmit", new { problemCode = @Model.Code }, FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        <input class = "input-large" type="file" name="file"/>
-        <input type="submit" value="OK" class="btn-primary"/>
-        @Html.Hidden("problemCode", @Model.Code);
-    }
 
 </div>
 

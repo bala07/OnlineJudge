@@ -2,7 +2,7 @@
 
 using Domain.Models;
 
-namespace DataAccessLayer.RepositoryInterfaces
+namespace DataAccessLayer.Interfaces
 {
     public interface IProblemRepository
     {

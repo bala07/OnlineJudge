@@ -14,7 +14,7 @@
         {
             <tr>
                 <td>@problem.Code</td>
-                <td><a href="@Url.RouteUrl("Problem", new { problemCode = @problem.Code })"> @problem.Name </a></td>
+                <td><a href="@Url.RouteUrl("ProblemDetails", new { problemCode = @problem.Code })"> @problem.Name </a></td>
                 <td>@problem.Difficulty</td>
             </tr>
         }

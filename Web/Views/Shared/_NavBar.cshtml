@@ -6,7 +6,7 @@
                     <a href="@Url.Action("Home", "Home")">Home</a>
                 </li>
                 <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "List" ? "active" : "")">
-                    <a href="@Url.Action("List", "Problem")">Problems</a>
+                    <a href="@Url.RouteUrl("ProblemsList")">Problems</a>
                 </li>
                 <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "About" ? "active" : "")">
                     <a href="@Url.Action("About", "Home")">About</a>

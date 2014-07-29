@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Web;
 
 using Domain.Models;
 
-using OnlineJudge.Service.Constants;
 using OnlineJudge.Service.Interfaces;
 
 namespace OnlineJudge.Service
@@ -111,6 +108,18 @@ namespace OnlineJudge.Service
             }
 
             return userDir;
+        }
+
+        public string PrepareDirectoryForCurrentSubmission(string baseDir, string timeStamp)
+        {
+            var finalDir = Path.Combine(baseDir, timeStamp);
+
+            if (!Directory.Exists(finalDir))
+            {
+                Directory.CreateDirectory(finalDir);
+            }
+
+            return finalDir;
         }
     }
 }

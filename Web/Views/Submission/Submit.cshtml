@@ -1,0 +1,19 @@
+﻿@model Domain.Models.Problem
+
+<hr/>
+
+<h4>Submit your solution for the @Model.Code problem</h4>
+
+<br/>
+
+<div id ="submission_form">
+    @using (Html.BeginRouteForm("Submit", new { problemCode = @Model.Code }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input class = "input-large" type="file" name="file"/>
+        <input type="submit" value="OK" class="btn-primary"/>
+        @Html.Hidden("problemCode", @Model.Code);
+    }
+</div>
+
+<hr/>
+
