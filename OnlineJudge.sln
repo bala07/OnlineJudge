@@ -14,6 +14,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{CACF1E3D-764B-476D-BA21-30EA7DED813E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{65F3765A-E001-49AC-AC66-D6878D30BD8C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit", "Unit", "{8804D0D6-BF5F-43FE-BCD1-72479A0341F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.UnitTests", "Service.UnitTests\Service.UnitTests.csproj", "{31941212-F19A-4706-BEB0-A2F5A2E3AF72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{CA33B4E1-B931-4D90-B6EE-7EA0BBF9ADCD}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +47,10 @@ Global
 		{CACF1E3D-764B-476D-BA21-30EA7DED813E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CACF1E3D-764B-476D-BA21-30EA7DED813E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CACF1E3D-764B-476D-BA21-30EA7DED813E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31941212-F19A-4706-BEB0-A2F5A2E3AF72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31941212-F19A-4706-BEB0-A2F5A2E3AF72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31941212-F19A-4706-BEB0-A2F5A2E3AF72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31941212-F19A-4706-BEB0-A2F5A2E3AF72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,5 +60,7 @@ Global
 		{2F5A2DB8-7B2C-44DA-ABCC-439005A35D21} = {F2F36278-B30F-4110-8F01-E09945EF801D}
 		{53189BD7-788D-406B-9E7D-8897C0B666F6} = {F2F36278-B30F-4110-8F01-E09945EF801D}
 		{CACF1E3D-764B-476D-BA21-30EA7DED813E} = {F2F36278-B30F-4110-8F01-E09945EF801D}
+		{8804D0D6-BF5F-43FE-BCD1-72479A0341F3} = {65F3765A-E001-49AC-AC66-D6878D30BD8C}
+		{31941212-F19A-4706-BEB0-A2F5A2E3AF72} = {8804D0D6-BF5F-43FE-BCD1-72479A0341F3}
 	EndGlobalSection
 EndGlobal
