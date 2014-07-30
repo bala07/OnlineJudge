@@ -4,8 +4,6 @@
     {
         string GetResultFilePath(string codeFilePath);
 
-        string GetTesterFilePath(string codeFilePath);
-
         string GetErrorFilePath(string codeFilePath);
 
         string GetAppDataPath();

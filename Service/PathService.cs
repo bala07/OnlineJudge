@@ -16,14 +16,6 @@ namespace OnlineJudge.Service
             return codeFileDirectory + "\\" + codeFileName + "_result.txt";
         }
 
-        public string GetTesterFilePath(string codeFilePath)
-        {
-            var codeFileName = Path.GetFileNameWithoutExtension(codeFilePath);
-
-            return FileConstants.TesterFilesBaseDirectory + "\\" + codeFileName + "Tester.cs";
-
-        }
-
         public string GetErrorFilePath(string codeFilePath)
         {
             var codeFileName = Path.GetFileNameWithoutExtension(codeFilePath);
