@@ -1,4 +1,8 @@
-﻿using NUnit.Framework;
+﻿using System.Web;
+
+using Moq;
+
+using NUnit.Framework;
 
 using OnlineJudge.Service;
 using OnlineJudge.Service.Interfaces;
@@ -11,7 +15,7 @@ namespace Service.UnitTests
         private IPathService pathService;
 
         [SetUp]
-        public void initFields()
+        public void InitFields()
         {
             this.pathService = new PathService();
         }

@@ -49,7 +49,7 @@ namespace OnlineJudge.Web.Controllers
             var result = this.testerService.TestCode(codeFilePath, problemCode);
 
             var submission = this.PrepareNewSubmission(problemCode, this.User.Identity.Name, Path.GetFileNameWithoutExtension(codeFilePath), timeStamp, result.ExecutionResult);
-            submissionService.Save(submission);
+            submissionService.AddSubmission(submission);
 
             return this.View("Result", result);
         }

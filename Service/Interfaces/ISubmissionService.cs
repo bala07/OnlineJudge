@@ -4,6 +4,6 @@ namespace OnlineJudge.Service.Interfaces
 {
     public interface ISubmissionService : IService
     {
-        void Save(Submission submission);
+        void AddSubmission(Submission submission);
     }
 }

@@ -36,9 +36,10 @@ namespace Service.UnitTests
 
             userRepositoryMock.Setup(repository => repository.Get(email)).Returns(userFromDb);
 
-            userService.GetUser(email);
+            var receivedUser = userService.GetUser(email);
 
             userRepositoryMock.VerifyAll();
+            Assert.That(receivedUser.Email, Is.EqualTo(userFromDb.Email));
         }
 
         [Test]

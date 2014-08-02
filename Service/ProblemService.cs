@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using System.Web;
 
-using DataAccessLayer;
 using DataAccessLayer.Interfaces;
 
 using Domain.Models;
@@ -25,9 +23,9 @@ namespace OnlineJudge.Service
             this.pathService = pathService;
         }
 
-        public Problem GetProblem(string name)
+        public Problem GetProblem(string problemCode)
         {
-            var problem = problemRepository.Get(name);
+            var problem = problemRepository.Get(problemCode);
 
             return problem;
         }
@@ -62,6 +60,8 @@ namespace OnlineJudge.Service
         private ProblemStatement GetProblemStatement(string problemCode)
         {
             var baseDir = pathService.GetAppDataPath();
+
+            // TODO: This hardcoding has to be removed
             var problemFilePath = baseDir + "\\problems\\" + problemCode + ".json";
 
             return JsonConvert.DeserializeObject<ProblemStatement>(File.ReadAllText(problemFilePath));

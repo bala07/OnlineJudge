@@ -7,6 +7,7 @@ using OnlineJudge.Service.Interfaces;
 
 namespace OnlineJudge.Service.Testers
 {
+    //TODO: Needs refactoring - is BaseTester required?? Can it be made a TestHelper??
     public class Tester : BaseTester
     {
         public Tester(ICodeExecutionService codeExecutionService, IPathService pathService, IFileService fileService)

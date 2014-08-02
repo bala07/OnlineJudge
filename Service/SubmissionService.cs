@@ -16,7 +16,7 @@ namespace OnlineJudge.Service
             this.submissionRepository = submissionRepository;
         }
 
-        public void Save(Submission submission)
+        public void AddSubmission(Submission submission)
         {
             this.submissionRepository.Create(submission);    
         }
