@@ -57,7 +57,8 @@
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="ProblemService.cs" />
     <Compile Include="SubmissionService.cs" />
-    <Compile Include="Testers\Tester.cs" />
+    <Compile Include="Testers\ITesterHelper.cs" />
+    <Compile Include="Testers\TesterHelper.cs" />
     <Compile Include="UserService.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="Constants\FileConstants.cs" />
@@ -73,8 +74,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Testers\BaseTester.cs" />
-    <Compile Include="Testers\TesterFactory.cs" />
+    <Compile Include="Testers\Tester.cs" />
     <Compile Include="Testers\ITester.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,82 +1,68 @@
-﻿using System.IO;
-
-using Domain.Models;
+﻿using Domain.Models;
 
 using OnlineJudge.Service.CodeExecutionService;
-using OnlineJudge.Service.Interfaces;
 
 namespace OnlineJudge.Service.Testers
 {
-    //TODO: Needs refactoring - is BaseTester required?? Can it be made a TestHelper??
-    public class Tester : BaseTester
+    public class Tester : ITester
     {
-        public Tester(ICodeExecutionService codeExecutionService, IPathService pathService, IFileService fileService)
-            : base(codeExecutionService, pathService, fileService)
+        private readonly ICodeExecutionService codeExecutionService;
+
+        private readonly ITesterHelper testerHelper;
+
+        public Tester(ICodeExecutionService codeExecutionService, ITesterHelper testerHelper)
         {
+            this.codeExecutionService = codeExecutionService;
+            this.testerHelper = testerHelper;
         }
 
-        public override void Test(string codeFilePath, TestSuite testSuite)
+        public void Test(string codeFilePath, string problemCode)
         {
-
             var compilationSuccessful = this.Compile(codeFilePath);
 
             if (!compilationSuccessful)
             {
-                this.HandleCompilationError(codeFilePath);
+                testerHelper.HandleCompilationError(codeFilePath);
 
                 return;
             }
 
+            var testSuite = testerHelper.GetTestSuite(problemCode);
+
             foreach (var testCase in testSuite.TestCases)
             {
-                WriteInputToFile(codeFilePath, testCase);
+                testerHelper.WriteTestInputToFile(codeFilePath, testCase);
 
                 var executionSuccessful = this.Run(codeFilePath, new string[] { });
 
                 if (!executionSuccessful)
                 {
-                    this.HandleRuntimeError(codeFilePath);
+                    testerHelper.HandleRuntimeError(codeFilePath);
 
                     return;
                 }
 
-                var correctAnswer = CompareOutputs(codeFilePath, testCase);
+                var correctAnswer = testerHelper.CompareOutputs(codeFilePath, testCase);
 
                 if (!correctAnswer)
                 {
-                    this.HandleSuccessFulExecution(codeFilePath, ExecutionResult.WrongAnswer);
+                    testerHelper.HandleSuccessfulExecution(codeFilePath, ExecutionResult.WrongAnswer);
 
                     return;
                 }
             }
 
-            this.HandleSuccessFulExecution(codeFilePath, ExecutionResult.CorrectAnswer);
+            testerHelper.HandleSuccessfulExecution(codeFilePath, ExecutionResult.CorrectAnswer);
         }
 
-        private void WriteInputToFile(string codeFilePath, TestCase testCase)
+        private bool Compile(string codeFilePath)
         {
-            var directory = Path.GetDirectoryName(codeFilePath);
-            var inputFilePath = directory + "\\input.txt";
-
-            FileService.WriteLinesToFile(inputFilePath, testCase.Input);
+            return this.codeExecutionService.Compile(codeFilePath);
         }
 
-        private bool CompareOutputs(string codeFilePath, TestCase testCase)
+        private bool Run(string codeFilePath, string[] commandLineArguments)
         {
-            var directory = Path.GetDirectoryName(codeFilePath);
-            var outputFilePath = directory + "\\output.txt";
-
-            var outputContents = FileService.ReadLinesFromFile(outputFilePath);
-
-            for (var idx = 0; idx < testCase.Output.Length; ++idx)
-            {
-                if (!outputContents[idx].Equals(testCase.Output[idx]))
-                {
-                    return false;
-                }
-            }
-
-            return true;
+            return this.codeExecutionService.Run(codeFilePath, commandLineArguments);
         }
     }
 }
