@@ -7,5 +7,7 @@
         string GetErrorFilePath(string codeFilePath);
 
         string GetAppDataPath();
+
+        string GetLocalErrorFilePath(string codeFilePath);
     }
 }

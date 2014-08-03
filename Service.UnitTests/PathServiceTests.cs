@@ -42,6 +42,17 @@ namespace Service.UnitTests
             Assert.That(receivedErrorFilePath, Is.EqualTo(ExpectedTesterFilePath));
         }
 
+        [Test]
+        public void ShouldReturnLocalErrorFilePath()
+        {
+            const string CodeFilePath = @"someDir\someFile.cs";
+            const string ExpectedLocalErrorFilePath = @"someDir\someFile_error.txt";
+
+            var receivedLocalErrorFilePath = pathService.GetLocalErrorFilePath(CodeFilePath);
+
+            Assert.That(receivedLocalErrorFilePath, Is.EqualTo(ExpectedLocalErrorFilePath));
+        }
+
         // TODO: Should add test for getting AppData path
     }
 }
