@@ -22,6 +22,7 @@ namespace OnlineJudge.Service.Testers
             this.pathService = pathService;
         }
 
+        //TODO: How to test this method?
         public TestSuite GetTestSuite(string problemCode)
         {
             var testSuitePath = HttpContext.Current.Server.MapPath("~/App_Data/TestSuites");
@@ -35,24 +36,24 @@ namespace OnlineJudge.Service.Testers
         public void HandleCompilationError(string codeFilePath)
         {
             var errorFilePath = this.pathService.GetErrorFilePath(codeFilePath);
-            var compilationErrorFilePath = this.pathService.GetErrorFilePath(codeFilePath);
+            var localErrorFilePath = this.pathService.GetLocalErrorFilePath(codeFilePath);
             var resultFilePath = this.pathService.GetResultFilePath(codeFilePath);
 
             var compilationError = this.fileService.ReadFromFile(errorFilePath);
 
-            this.fileService.WriteToFile(compilationErrorFilePath, compilationError);
+            this.fileService.WriteToFile(localErrorFilePath, compilationError);
             this.fileService.WriteToFile(resultFilePath, "CompilationError");
         }
 
         public void HandleRuntimeError(string codeFilePath)
         {
             var errorFilePath = this.pathService.GetErrorFilePath(codeFilePath);
-            var runtimeErrorFilePath = this.pathService.GetErrorFilePath(codeFilePath);
+            var localErrorFilePath = this.pathService.GetLocalErrorFilePath(codeFilePath);
             var resultFilePath = this.pathService.GetResultFilePath(codeFilePath);
 
             var runtimeError = this.fileService.ReadFromFile(errorFilePath);
 
-            this.fileService.WriteToFile(runtimeErrorFilePath, runtimeError);
+            this.fileService.WriteToFile(localErrorFilePath, runtimeError);
             this.fileService.WriteToFile(resultFilePath, "RuntimeError");
         }
 

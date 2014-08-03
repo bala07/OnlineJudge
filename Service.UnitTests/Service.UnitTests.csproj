@@ -66,6 +66,7 @@
     <Compile Include="ProblemServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SubmissionServiceTests.cs" />
+    <Compile Include="TesterHelperTests.cs" />
     <Compile Include="TesterServiceTests.cs" />
     <Compile Include="UserServiceTests.cs" />
   </ItemGroup>
