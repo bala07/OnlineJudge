@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileServiceTests.cs" />
     <Compile Include="PathServiceTests.cs" />
     <Compile Include="ProblemServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
