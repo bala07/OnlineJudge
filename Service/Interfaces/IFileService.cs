@@ -8,8 +8,6 @@ namespace OnlineJudge.Service.Interfaces
     {
         string SaveUploadedFileToDisk(HttpPostedFileBase file, string userDirectory);
 
-        ExecutionResult GetTesterResult(string codeFilePath);
-
         string ReadFromFile(string filePath);
 
         void WriteToFile(string filePath, string contents);

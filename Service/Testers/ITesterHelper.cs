@@ -6,6 +6,8 @@ namespace OnlineJudge.Service.Testers
     {
         TestSuite GetTestSuite(string problemCode);
 
+        ExecutionResult GetTesterResult(string codeFilePath);
+
         void WriteTestInputToFile(string codeFilePath, TestCase testcase);
 
         bool CompareOutputs(string codeFilePath, TestCase testcase);

@@ -134,5 +134,23 @@ namespace Service.UnitTests
             Assert.False(receivedResult);
             fileServiceMock.VerifyAll();
         }
+
+        [Test]
+        public void ShouldReturnExecutionResult()
+        {
+            const string CodeFilePath = "codeFile";
+            const string ResultFilePath = "resultFile";
+            var fileContents = new[] { "WrongAnswer" };
+            const ExecutionResult ExpectedExecutionResult = ExecutionResult.WrongAnswer;
+
+            pathServiceMock.Setup(service => service.GetResultFilePath(CodeFilePath)).Returns(ResultFilePath);
+            fileServiceMock.Setup(service => service.ReadLinesFromFile(ResultFilePath)).Returns(fileContents);
+
+            var receivedExecutionresult = testerHelper.GetTesterResult(CodeFilePath);
+
+            Assert.That(receivedExecutionresult, Is.EqualTo(ExpectedExecutionResult));
+            pathServiceMock.VerifyAll();
+            fileServiceMock.VerifyAll();
+        }
     }
 }

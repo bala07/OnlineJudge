@@ -55,6 +55,11 @@ namespace OnlineJudge.Service.Testers
             testerHelper.HandleSuccessfulExecution(codeFilePath, ExecutionResult.CorrectAnswer);
         }
 
+        public ExecutionResult GetTesterResult(string codeFilePath)
+        {
+            return testerHelper.GetTesterResult(codeFilePath);
+        }
+
         private bool Compile(string codeFilePath)
         {
             return this.codeExecutionService.Compile(codeFilePath);

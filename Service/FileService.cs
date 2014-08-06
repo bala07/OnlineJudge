@@ -33,21 +33,6 @@ namespace OnlineJudge.Service
             return null;
         }
 
-        public ExecutionResult GetTesterResult(string codeFilePath)
-        {
-            var resultFilePath = pathService.GetResultFilePath(codeFilePath);
-            string result;
-
-            using (var fileReader = new StreamReader(resultFilePath))
-            {
-                result = fileReader.ReadLine();
-            }
-
-            var executionResult = (ExecutionResult)Enum.Parse(typeof(ExecutionResult), result);
-
-            return executionResult;
-        }
-
         public string ReadFromFile(string filePath)
         {
             string fileContents;
@@ -99,7 +84,7 @@ namespace OnlineJudge.Service
 
         public string PrepareDirectoryForUser(string email)
         {
-            var basePath = HttpContext.Current.Server.MapPath("~/App_Data/UserSubmissions");
+            var basePath = pathService.GetAppDataPath();
             var userDir = Path.Combine(basePath, email);
 
             if (!Directory.Exists(userDir))

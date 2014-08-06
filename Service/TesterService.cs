@@ -29,7 +29,7 @@ namespace OnlineJudge.Service
             var result = new Result { 
                                         ProblemName = problemCode,
                                         Language = Utilities.GetLangaugeNameFromExtension(Path.GetExtension(codeFilePath)),
-                                        ExecutionResult = fileService.GetTesterResult(codeFilePath)
+                                        ExecutionResult = tester.GetTesterResult(codeFilePath)
                                     };
 
             if (!(result.ExecutionResult.Equals(ExecutionResult.CorrectAnswer) || result.ExecutionResult.Equals(ExecutionResult.WrongAnswer)))

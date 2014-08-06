@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Web;
 
@@ -31,6 +32,16 @@ namespace OnlineJudge.Service.Testers
             IList<TestCase> testCases = JsonConvert.DeserializeObject<List<TestCase>>(File.ReadAllText(testSuitePath));
 
             return new TestSuite { TestCases = testCases };
+        }
+
+        public ExecutionResult GetTesterResult(string codeFilePath)
+        {
+            var resultFilePath = pathService.GetResultFilePath(codeFilePath);
+            var result = fileService.ReadLinesFromFile(resultFilePath)[0];
+
+            var executionResult = (ExecutionResult)Enum.Parse(typeof(ExecutionResult), result);
+
+            return executionResult;
         }
 
         public void HandleCompilationError(string codeFilePath)

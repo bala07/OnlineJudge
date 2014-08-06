@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Web;
@@ -20,7 +19,7 @@ namespace Service.UnitTests
 
         private IFileService fileService;
 
-        private const string BaseDirectory = "FileServiceTestsDir";
+        private const string BaseTestDirectory = "FileServiceTestsDir";
 
         private const string TestFile = "TestFile.txt";
 
@@ -30,20 +29,16 @@ namespace Service.UnitTests
             pathServiceMock = new Mock<IPathService>();
             fileService = new FileService(pathServiceMock.Object);
 
-            Directory.CreateDirectory(BaseDirectory);
+            Directory.CreateDirectory(BaseTestDirectory);
         }
 
         [TearDown]
         public void CleanUp()
         {
-            var filePaths = Directory.GetFiles(BaseDirectory);
+            this.DeleteSubDirectoriesInDirectory(BaseTestDirectory);
+            this.DeleteFilesInADirectory(BaseTestDirectory);
 
-            foreach (var filePath in filePaths)
-            {
-                File.Delete(filePath);
-            }
-
-            Directory.Delete(BaseDirectory);
+            Directory.Delete(BaseTestDirectory);
         }
 
         [Test]
@@ -92,7 +87,7 @@ namespace Service.UnitTests
         [Test]
         public void ShouldReadFromFile()
         {
-            var filePath = Path.Combine(BaseDirectory, TestFile);
+            var filePath = Path.Combine(BaseTestDirectory, TestFile);
             const string ExpectedFileContent = "Hello World!";
 
             WriteContentToFile(filePath, ExpectedFileContent);
@@ -105,7 +100,7 @@ namespace Service.UnitTests
         [Test]
         public void ShouldWriteToFile()
         {
-            var filePath = Path.Combine(BaseDirectory, TestFile);
+            var filePath = Path.Combine(BaseTestDirectory, TestFile);
             const string ContentToBeWrittenToFile = "fileContents";
 
             fileService.WriteToFile(filePath, ContentToBeWrittenToFile);
@@ -118,7 +113,7 @@ namespace Service.UnitTests
         [Test]
         public void ShouldReadLinesFromFile()
         {
-            var filePath = Path.Combine(BaseDirectory, TestFile);
+            var filePath = Path.Combine(BaseTestDirectory, TestFile);
             var linesToBeWrittenToFile = new[] { "Line1", "Line2" };
 
             WriteLinesToFile(filePath, linesToBeWrittenToFile);
@@ -133,7 +128,7 @@ namespace Service.UnitTests
         [Test]
         public void ShouldWriteLinesToFile()
         {
-            var filePath = Path.Combine(BaseDirectory, TestFile);
+            var filePath = Path.Combine(BaseTestDirectory, TestFile);
             var linesToBeWrittenToFile = new [] { "Line1", "Line2" };
 
             fileService.WriteLinesToFile(filePath, linesToBeWrittenToFile);
@@ -143,6 +138,33 @@ namespace Service.UnitTests
             Assert.That(receivedLinesFromFile.Length, Is.EqualTo(linesToBeWrittenToFile.Length));
             Assert.That(receivedLinesFromFile[0], Is.EqualTo(linesToBeWrittenToFile[0]));
             Assert.That(receivedLinesFromFile[1], Is.EqualTo(linesToBeWrittenToFile[1]));
+        }
+
+        [Test]
+        public void ShouldPrepareDirectoryForUserIfTheDirectoryDoesNotExist()
+        {
+            const string Email = "userEmail";
+            var expectedUserDirectoryPath = Path.Combine(BaseTestDirectory, Email);
+
+            pathServiceMock.Setup(service => service.GetAppDataPath()).Returns(BaseTestDirectory);
+
+            var returnedUserDirectoryPath = fileService.PrepareDirectoryForUser(Email);
+
+            Assert.That(returnedUserDirectoryPath, Is.EqualTo(expectedUserDirectoryPath));
+            Assert.True(Directory.Exists(expectedUserDirectoryPath));
+            pathServiceMock.VerifyAll();
+        }
+
+        [Test]
+        public void ShouldPrepareDirectoryForCurrentSubmission()
+        {
+            const string TimeStamp = "timeStamp";
+            var expectedDirectoryPath = Path.Combine(BaseTestDirectory, TimeStamp);
+
+            var returnedDirectoryPath = fileService.PrepareDirectoryForCurrentSubmission(BaseTestDirectory, TimeStamp);
+
+            Assert.That(returnedDirectoryPath, Is.EqualTo(expectedDirectoryPath));
+            Assert.True(Directory.Exists(expectedDirectoryPath));
         }
 
         private string[] ReadLinesFromFile(string filePath)
@@ -193,7 +215,22 @@ namespace Service.UnitTests
             {
                 fileWriter.WriteLine(fileContent);
             }
+        }
 
+        private void DeleteFilesInADirectory(string directoryPath)
+        {
+            foreach (var filePath in Directory.EnumerateFiles(directoryPath))
+            {
+                File.Delete(filePath);
+            }
+        }
+
+        private void DeleteSubDirectoriesInDirectory(string directoryPath)
+        {
+            foreach (var directory in Directory.EnumerateDirectories(directoryPath))
+            {
+                Directory.Delete(directory);
+            }
         }
     }
 }

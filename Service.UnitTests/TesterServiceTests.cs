@@ -37,7 +37,7 @@ namespace Service.UnitTests
             const string CodeFilePath = "codePath";
             const string ProblemCode = "problemCode";
 
-            fileServiceMock.Setup(service => service.GetTesterResult(CodeFilePath))
+            testerMock.Setup(service => service.GetTesterResult(CodeFilePath))
                 .Returns(ExecutionResult.CorrectAnswer);
             testerMock.Setup(tester => tester.Test(CodeFilePath, ProblemCode));
 
@@ -56,7 +56,7 @@ namespace Service.UnitTests
             const string ErrorFilePath = "errorPath";
             const string CompilationErrorMessage = "compilationError";
 
-            fileServiceMock.Setup(service => service.GetTesterResult(CodeFilePath))
+            testerMock.Setup(service => service.GetTesterResult(CodeFilePath))
                 .Returns(ExecutionResult.CompilationError);
             fileServiceMock.Setup(service => service.ReadFromFile(ErrorFilePath)).Returns(CompilationErrorMessage);
             pathServiceMock.Setup(service => service.GetErrorFilePath(CodeFilePath)).Returns(ErrorFilePath);
@@ -79,7 +79,7 @@ namespace Service.UnitTests
             const string ErrorFilePath = "errorPath";
             const string RuntimeErrorMessage = "runtimeError";
 
-            fileServiceMock.Setup(service => service.GetTesterResult(CodeFilePath))
+            testerMock.Setup(service => service.GetTesterResult(CodeFilePath))
                 .Returns(ExecutionResult.RuntimeError);
             fileServiceMock.Setup(service => service.ReadFromFile(ErrorFilePath)).Returns(RuntimeErrorMessage);
             pathServiceMock.Setup(service => service.GetErrorFilePath(CodeFilePath)).Returns(ErrorFilePath);
