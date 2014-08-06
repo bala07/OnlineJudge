@@ -69,6 +69,7 @@
     <Compile Include="SubmissionServiceTests.cs" />
     <Compile Include="TesterHelperTests.cs" />
     <Compile Include="TesterServiceTests.cs" />
+    <Compile Include="TesterTests.cs" />
     <Compile Include="UserServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
