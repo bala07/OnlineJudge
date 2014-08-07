@@ -11,9 +11,9 @@ namespace DataAccessLayer
     {
         private readonly OnlineJudgeContext onlineJudgeContext;
 
-        public UserRepository()
+        public UserRepository(OnlineJudgeContext onlineJudgeContext)
         {
-            this.onlineJudgeContext = new OnlineJudgeContext();
+            this.onlineJudgeContext = onlineJudgeContext;
         }
 
         public User Get(string email)

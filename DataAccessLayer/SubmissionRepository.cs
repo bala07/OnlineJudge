@@ -8,9 +8,9 @@ namespace DataAccessLayer
     {
         private readonly OnlineJudgeContext onlineJudgeContext;
 
-        public SubmissionRepository()
+        public SubmissionRepository(OnlineJudgeContext onlineJudgeContext)
         {
-            this.onlineJudgeContext = new OnlineJudgeContext();
+            this.onlineJudgeContext = onlineJudgeContext;
         }
 
         public void Create(Submission submission)

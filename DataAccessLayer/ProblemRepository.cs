@@ -11,9 +11,9 @@ namespace DataAccessLayer
     {
         private readonly OnlineJudgeContext onlineJudgeContext;
 
-        public ProblemRepository()
+        public ProblemRepository(OnlineJudgeContext onlineJudgeContext)
         {
-            onlineJudgeContext = new OnlineJudgeContext();
+            this.onlineJudgeContext = onlineJudgeContext;
         }
 
         public Problem Get(string problemCode)
