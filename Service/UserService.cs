@@ -30,7 +30,7 @@ namespace OnlineJudge.Service
 
         public void AddUser(User user)
         {
-            this.userRepository.Create(user);
+            this.userRepository.Add(user);
         }
     }
 }

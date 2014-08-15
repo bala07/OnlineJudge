@@ -59,7 +59,7 @@ namespace Service.UnitTests
         {
             var newUser = new User { Email = "foo@bar.com" };
 
-            userRepositoryMock.Setup(repository => repository.Create(newUser));
+            userRepositoryMock.Setup(repository => repository.Add(newUser));
 
             userService.AddUser(newUser);
 

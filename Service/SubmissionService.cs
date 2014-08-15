@@ -18,7 +18,7 @@ namespace OnlineJudge.Service
 
         public void AddSubmission(Submission submission)
         {
-            this.submissionRepository.Create(submission);    
+            this.submissionRepository.Add(submission);    
         }
     }
 }

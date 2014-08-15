@@ -13,7 +13,7 @@ namespace DataAccessLayer
             this.onlineJudgeContext = onlineJudgeContext;
         }
 
-        public void Create(Submission submission)
+        public void Add(Submission submission)
         {
             this.onlineJudgeContext.Submissions.Add(submission);
             this.onlineJudgeContext.SaveChanges();

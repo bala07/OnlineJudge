@@ -32,7 +32,7 @@ namespace Service.UnitTests
         {
             var submission = new Submission();
 
-            SubmissionRepositoryMock.Setup(repository => repository.Create(submission));
+            SubmissionRepositoryMock.Setup(repository => repository.Add(submission));
 
             SubmissionService.AddSubmission(submission);
 

@@ -4,6 +4,6 @@ namespace DataAccessLayer.Interfaces
 {
     public interface ISubmissionRepository : IRepository
     {
-        void Create(Submission submission);
+        void Add(Submission submission);
     }
 }

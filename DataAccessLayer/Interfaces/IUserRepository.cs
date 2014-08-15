@@ -10,6 +10,6 @@ namespace DataAccessLayer.Interfaces
 
         IList<User> GetAll();
 
-        void Create(User user);
+        void Add(User user);
     }
 }
