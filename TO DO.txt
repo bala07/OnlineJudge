@@ -1,5 +1,17 @@
-1) Add auto mapper for depedency injection
-2) Add nunit test framework and write tests
-3) Functionality related to MySubmission and BestSubmissions
-4) User rankings
+FUNCTIONAL TO-DOs:
+
+1) Functionality related to MySubmission and BestSubmissions
+2) User rankings
 5) 
+
+
+
+TECHNICAL TO-DOs:
+
+1) Add structure-map for depedency injection - done
+2) Add nunit test framework and write tests - in progress
+3) Add view models
+4) Add auto-mapper for mapping
+5) Add builders for testing
+6) Add DB-migrations
+7) Create an automated build for the project
