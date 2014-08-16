@@ -5,8 +5,8 @@ using System.Web.Mvc;
 
 using Domain.Models;
 
-using OnlineJudge.Service;
 using OnlineJudge.Service.Interfaces;
+using OnlineJudge.Web.Exceptions;
 
 namespace OnlineJudge.Web.Controllers
 {
@@ -28,7 +28,7 @@ namespace OnlineJudge.Web.Controllers
         public ActionResult Submit(string problemCode)
         {
             var problem = new Problem { Code = problemCode };
-            return this.View(problem);
+            return this.View("Submit", problem);
         }
 
         [HttpPost]
@@ -43,7 +43,7 @@ namespace OnlineJudge.Web.Controllers
             var codeFilePath = fileService.SaveUploadedFileToDisk(file, dirToSaveFile);
             if (codeFilePath == null)
             {
-                throw new Exception("Invalid file uploaded");
+                throw new InvalidFileException("Invalid file uploaded");
             }
 
             var result = this.testerService.TestCode(codeFilePath, problemCode);
