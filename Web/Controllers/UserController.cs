@@ -2,11 +2,12 @@
 using System.Web.Mvc;
 using System.Web.Security;
 
+using AutoMapper;
+
 using Domain.Models;
 
-using OnlineJudge.Service;
 using OnlineJudge.Service.Interfaces;
-using OnlineJudge.Web.Models;
+using OnlineJudge.Web.ViewModels;
 
 namespace OnlineJudge.Web.Controllers
 {
@@ -63,17 +64,12 @@ namespace OnlineJudge.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                var user = Mapper.Map<User>(userRegistrationViewModel);
                 var crypto = new SimpleCrypto.PBKDF2();
-
                 var encryptedPassword = crypto.Compute(userRegistrationViewModel.Password);
 
-                var user = new User
-                               {
-                                   Email = userRegistrationViewModel.Email,
-                                   Password = encryptedPassword,
-                                   PasswordSalt = crypto.Salt,
-                                   Username = userRegistrationViewModel.Username
-                               };
+                user.PasswordSalt = crypto.Salt;
+                user.Password = encryptedPassword;
 
                 userService.AddUser(user);
 

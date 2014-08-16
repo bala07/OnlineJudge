@@ -8,6 +8,7 @@ using DataAccessLayer.Interfaces;
 using OnlineJudge.Service.CodeExecutionService;
 using OnlineJudge.Service.Interfaces;
 using OnlineJudge.Web.Controllers;
+using OnlineJudge.Web.Initialization;
 
 using StructureMap;
 
@@ -33,6 +34,7 @@ namespace OnlineJudge.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+            AutoMapperInitalizer.Initialize();
         }
 
         private void StructureMapConfiguration()
